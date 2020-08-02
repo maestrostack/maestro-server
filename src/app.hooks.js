@@ -1,3 +1,4 @@
+const processNewRecord = require('./hooks/process-new-record');
 // Application hooks that run for every service
 
 module.exports = {
@@ -15,7 +16,7 @@ module.exports = {
     all: [],
     find: [],
     get: [],
-    create: [],
+    create: [processNewRecord()],
     update: [],
     patch: [],
     remove: []

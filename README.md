@@ -1,6 +1,6 @@
 # maestro-server
 
-> Backend API server and controller for all other Maestro components
+> Core API and server for Maestro
 
 ## About
 

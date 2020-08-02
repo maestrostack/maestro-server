@@ -10,13 +10,14 @@ const configuration = require('@feathersjs/configuration');
 const express = require('@feathersjs/express');
 const socketio = require('@feathersjs/socketio');
 
-
 const middleware = require('./middleware');
 const services = require('./services');
 const appHooks = require('./app.hooks');
 const channels = require('./channels');
 
 const authentication = require('./authentication');
+
+const jobManagement = require('./job-management');
 
 const mongodb = require('./mongodb');
 
@@ -40,6 +41,7 @@ app.configure(socketio());
 
 app.configure(mongodb);
 
+
 // Configure other middleware (see `middleware/index.js`)
 app.configure(middleware);
 app.configure(authentication);
@@ -47,6 +49,8 @@ app.configure(authentication);
 app.configure(services);
 // Set up event channels (see channels.js)
 app.configure(channels);
+
+app.configure(jobManagement);
 
 // Configure a middleware for 404s and the error handler
 app.use(express.notFound());

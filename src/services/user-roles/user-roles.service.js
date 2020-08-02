@@ -1,0 +1,17 @@
+// Initializes the `user-roles` service on path `/user-roles`
+const { UserRoles } = require('./user-roles.class');
+const hooks = require('./user-roles.hooks');
+
+module.exports = function (app) {
+  const options = {
+    paginate: app.get('paginate')
+  };
+
+  // Initialize our service with any options it requires
+  app.use('/user-roles', new UserRoles(options, app));
+
+  // Get our initialized service so that we can register hooks
+  const service = app.service('user-roles');
+
+  service.hooks(hooks);
+};

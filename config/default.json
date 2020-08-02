@@ -3,13 +3,13 @@
   "port": 3030,
   "public": "../public/",
   "paginate": {
-    "default": 10,
-    "max": 50
+    "default": 500,
+    "max": 2000
   },
   "authentication": {
     "entity": "user",
     "service": "users",
-    "secret": "wwu/MeO6sRHbUmPt/Kaqb7vIs0w=",
+    "secret": "iGfgU71vns7H7M6rDFEX85+x1DU=",
     "authStrategies": [
       "jwt",
       "local"
@@ -26,7 +26,23 @@
     "local": {
       "usernameField": "email",
       "passwordField": "password"
+    },
+    "oauth": {
+      "redirect": "/frontend",
+      "asdf": {
+        "key": "...",
+        "secret": "...",
+        "custom_params": { "access_type": "offline" }
+      },
+      "adfs": {
+        "authorize_url": "https://adfs.childrens.com/adfs/oauth2/authorize",
+        "access_url": "https://adfs.childrens.com/adfs/oauth2/token",
+        "oauth": 2,
+        "key": "f3f47b50-1521-4b9f-92da-969511681d47",
+        "scope": ["openid"]
+      }
     }
   },
-  "mongodb": ""
+  "mongodb": "mongodb://localhost:27017/maestro_server",
+  "nedb": "../data"
 }
